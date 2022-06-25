@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let arr = [1, 4, 5, 6];
+
+  Array.prototype.Mymap = function (x, i, c) {
+    let curr = this[0];
+    let arr3 = [];
+    for (let i = 0; i < this.length; i++) {
+      let ans = x(this[i], i, curr);
+      arr3.push(ans);
+    }
+    return arr3;
+    // return this;
+  };
+  Array.prototype.myFilter = function (x, i, c) {
+    let curr = this[0];
+    let arr3 = [];
+    for (let i = 0; i < this.length; i++) {
+      let ans = x(this[i], i, curr);
+      if (ans) {
+        arr3.push(this[i]);
+      }
+    }
+    return arr3;
+    // return this;
+  };
+
+  Array.prototype.myForEach = function (x, i) {
+    for (let i = 0; i < this.length; i++) {
+      let ans = x(this[i], i);
+    }
+  };
+
+  Array.prototype.Myreduce = function (x, s, val, k) {
+    let ans;
+    s = this[0];
+    for (let i = 0; i < this.length; i++) {
+      val = this[i];
+      k = i;
+      ans = x(s, val, k);
+    }
+    return ans;
+  };
+</script>
